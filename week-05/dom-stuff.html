@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Stuff</title>
+    <style>
+        .redBG {
+            background-color: red;
+            color: brown !important;
+
+        }
+
+        .happy {
+            background-color: rgb(255, 255, 210);
+        }
+
+        .happy h1 {
+            text-transform: lowercase;
+            color: palevioletred;
+            ;
+
+        }
+
+        .happy h2 {
+            text-transform: lowercase;
+            color: pink;
+
+        }
+
+        .happy button {
+            border-radius: 10px;
+            border-color: rgb(255, 245, 64);
+            background-color: palevioletred;
+            color: white;
+
+        }
+
+        .sad {
+            background-color: rgb(160, 160, 242);
+            text-transform: lowercase!important;
+        }
+
+        .sad h1 {
+            text-transform: uppercase;
+            color: blue;
+        }
+
+        .sad h2 {
+            text-transform: lowercase;
+            color: lightblue;
+
+        }   
+
+
+        .sad button {
+            border-radius: 10px;
+            background-color: blue;
+            color: lightblue;
+
+        }
+
+        .angry {
+            background-color: rgb(255, 255, 255);
+            text-transform: uppercase!important;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="pageH1">Dom Stuff</h1>
+    <p> Document Object Model </p>
+    <button id="makeRed">Click Me!</button>
+
+    <input type="text" id="newH1" placeholder="enter a new h1">
+    <button id="changeH1">Change the H1</button>
+
+    <h2> How are you today? </h2>
+    <label for="userMood">
+        Enteer your mood.
+    </label>
+
+    <input type="text" id="userMood" placeholder="happy, sad, angry">
+    <button id="processMood">Process Mood</button>
+
+    <script>
+        var button = document.querySelector("#makeRed");
+        console.log(typeof buton);
+
+        button.addEventListener("click", function () {
+            var body = document.querySelector("body");
+            body.classList.toggle("redBG");
+            button.innerHTML = "change it back";
+        });
+
+        var newH1Input = document.querySelector("#newH1");
+        var newH1Button = document.querySelector("#changeH1");
+        var pageH1 = document.querySelector("#pageH1");
+
+        newH1Button.addEventListener("click", function () {
+            var inputValue = newH1Input.value;
+
+            pageH1.innerHTML = inputValue;
+        });
+
+        var processMoodButton = document.querySelector("#processMood");
+        var moodInpt = document.querySelector("#userMood");
+        var body = document.querySelector("body");
+
+        processMoodButton.addEventListener("click", function () {
+            var inputValue = userMood.value;
+
+            if (inputValue == "happy") {
+                body.classList.add("happy");
+                body.classList.remove("sad");
+                body.classList.remove("angry");
+            } else if (inputValue == "sad") {
+                body.classList.add("sad");
+                body.classList.remove("happy");
+                body.classList.remove("angry");
+            } else if (inputValue == "angry") {
+                body.classList.add("angry");
+                body.classList.remove("happy");
+                body.classList.remove("sad");
+            } else {
+                alert("you must enter a valid mood.");
+            }
+        })
+
+    </script>
+</body>
+
+</html>
