@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUild our Task List</title>
+</head>
+
+<body>
+    <h1>We're building a task list</h1>
+
+    <input type="text" id="newTask" placeholder="new task" />
+    <button id="addTask"> Add Task</button>
+
+    <h2> Task List</h2>
+    <ul id="taskList">
+        <li> Sample Task 1</li>
+        <li> Sample Task 2</li>
+    </ul>
+
+    <script>
+        //this button is clicked
+        var taskButton = document.querySelector("#addTask");
+        //take the infor from this input
+        var taskInput = document.querySelector("#newTask");
+        //and put it in an LI in here
+        var taskList = document.querySelector("#taskList");
+
+        taskButton.addEventListener("click", function () {
+            addTask(taskInput.value)
+        })
+
+        function addTask(newTask) {
+            console.log("we're in da function");
+            var html = "<li>" + newTask + "</li>";
+            tasList.innerHTML += html;
+        }
+        var shoppingList = ['Apples', 'String Cheese', 'Bread'];
+
+        //array is a data type that stores a list
+        console.log(shoppingList);
+
+        console.log(shoppingList[0]); //apples
+
+        shoppingList[shoppingList.length] = "clementines";
+
+        console.log(shoppingList);
+
+        shoppingList.push("grapes");
+        shoppingList.push("oranges");
+
+        for (let i=0; i<shoppingList.length; i++) {
+            console.log(shoppingList[i]);
+        }
+
+
+
+        // console.log(shoppingList[1]); //string cheese
+        // console.log(shoppingList[2]); //bread
+
+    </script>
+</body>
+
+</html>

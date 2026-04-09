@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 3 Playlist</title>
+</head>
+
+<body>
+    <h1>Playlist </h1>
+    <input type="text" id="newSong" placeholder="enter a new Song">
+    <button id="addSong"> Add Song</button>
+
+    <ol id="songList">
+
+    </ol>
+
+    <button id="deleteList">Delete List</button>
+
+
+    <script>
+        var songList = [];
+        // taskList.push("Brush Teeth");
+        // taskList.push("Go to class");
+
+        var songButton = document.querySelector("#addSong");
+        var songInput = document.querySelector("#newSong");
+
+
+        function addSong(song) {
+            songList.push(song);
+        }
+
+        function renderList() {
+            var listElement = document.querySelector("#songList");
+            listElement.innerHTML = "";
+            //read tasklist array and properly render it to the page
+
+            //loop through each item. one by one, in our taskList
+            for (var i = 0; i < songList.length; i++) {
+                var listItem = "<li>" + songList[i] + "</li>";
+    listElement.innerHTML += listItem;
+  
+}
+        }
+
+        songButton.addEventListener("click", function () {
+            var songText = songInput.value;
+
+            if (songText.length > 0) {
+                addSong(songText);
+                renderList();
+                songInput.value = "";
+                songInput.focus();
+            } else {
+                alert("Please enter a song!");
+            }
+
+
+            // addTask(taskText);
+
+            //renderList();
+            // console.log(taskList);
+        })
+
+        addSong("Snooze - SZA");
+        addSong("Three Little Birds - Bob Marley");
+        addSong("Return of the Mack - Mack Morrison");
+
+        console.log(songList); 
+
+        document.querySelector("#deleteList").addEventListener("click", function () {
+    songList = [];
+    renderList();
+});
+
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning About Objects</title>
+</head>
+
+<body>
+    <h1>Learning About Objects</h1>
+
+    <button id="addPerson">Add Person</button>
+    <button id="editPerson">Edit Person</button>
+
+    <div id="directory"></div>
+
+    <script>
+        var age = 37;
+        var name = "Joel";
+        var list = [];
+        var isOld = true;
+
+        var joel = {
+            name: "Joel",
+            age: 37,
+            list: ['Teach Class', 'Eat Lunch'],
+            isOld: true
+        };
+
+        console.log(joel);
+        var directory = [
+            {
+                name: "joel",
+                role: "instructor",
+            },
+            {
+                name: "maggie",
+                role: "student"
+            },
+            {name: "dylan",
+             role: "student"
+            }
+        ]
+
+        function renderDirectory() {
+            document.getElementById('directory').innerHTML = "";
+
+        directory.forEach(function(person) {
+            var p = document.createElement ('p');
+            p.textContent = person.name + " - " + person.role;
+            document.getElementById('directory').appendChild(p);
+        });
+
+        document.getElementById('addPerson').addEventListener('click', function() {
+        var name = prompt("enter the person's name:");
+        var role = prompt("enter the person's role:");
+
+        if (name && role) {
+            directory.push({ name: name, role: role });
+            renderDirectory();
+        } else {
+            alert("please enter both a name and a role.");
+        }
+    });
+}
+
+//EDIT THE PERSON BUTTON
+
+document.getElementById('editPerson').addEventListener('click', function() {
+        if (directory.length === 0) {
+            alert("the directory is empty!");
+            return;
+        }
+
+        var personList = directory.map((person, index) => `${index + 1}: ${person.name} - ${person.role}`).join("\n");
+        var choice = prompt("enter the number of the person you want to edit:\n" + personList);
+        var index = parseInt(choice) - 1;
+        
+        if (index >= 0 && index < directory.length) {
+            var newName = prompt("enter the new name:", directory[index].name);
+            var newRole = prompt("enter the new role:", directory[index].role);
+            // Only update if both fields are filled
+            if (newName && newRole) {
+                directory[index].name = newName;
+                directory[index].role = newRole;
+                renderDirectory();
+            } else {
+                alert("name and role cannot be empty.");
+            }
+        } else {
+            alert("invalid selection.");
+        }
+    });
+
+    renderDirectory();
+        //console.log(directory[1].name);
+    
+        //Next, 1) create the ability to add a new person (name and role) to the directory
+        //2) create the ability to edit the name and role of anyone in the directory
+
+    </script>
+
+</body>
+
+</html>
