@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Dog Breed List</title>
+
+    <h1> profile</h1>
+</head>
+<body>
+
+    
+    <h1 id="name"></h1>
+    <p id="description"></p>
+
+    <a href="index.html">← Back to Breed List</a>
+    
+    <script>
+    // get ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    
+    async function getBreed() {
+      const res = await fetch(`https://dogapi.dog/api/v2/breeds/${id}`);
+      const data = await res.json();
+    
+      const breed = data.data;
+    
+      document.getElementById('name').textContent = breed.attributes.name;
+      document.getElementById('description').textContent = breed.attributes.description;
+    }
+    
+    getBreed();
+
+    </script>
+
+</body>
+
+
+</html>

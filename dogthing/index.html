@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breed List</title>
+</head>
+
+<body>
+    <h1> Dog Breed List</h1>
+
+    <ul id="list"></ul>
+    <script>
+        async function getBreeds() {
+            const res = await fetch('https://dogapi.dog/api/v2/breeds');
+            const data = await res.json();
+
+
+            const breedsArray = data.data;
+
+            const list = document.getElementById('list');
+
+            breedsArray.forEach(breed => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.textContent = breed.attributes.name;
+
+
+                a.href = `profile.html?id=${breed.id}`;
+
+                li.appendChild(a);
+                list.appendChild(li);
+            });
+        }
+
+        getBreeds();
+    </script>
+
+</body>
+
+</html>
