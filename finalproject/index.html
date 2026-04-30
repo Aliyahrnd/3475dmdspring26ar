@@ -16,11 +16,8 @@
             <img src="imgs/logo.png" class="logo">
 
             <div class="links">
-                <a href="#">Home</a>
-                <a href="#">Read</a>
-                <a href="#">Want to Read</a>
-                <a href="#">Reviews</a>
-                <a href="#">Other</a>
+                <a href="#">Aliyah's Favorite Books</a>
+                <input type="text" id="searchBar" placeholder="Search favorites...">
             </div>
         </nav>
 
@@ -35,102 +32,54 @@
         </div>
 
     </div>
+    <div class="book-section">
+        <h3>Search Results</h3>
+        <div id="searchResults"></div>
+    </div>
 
     <div class="book-section">
 
         <h3>My Favorites</h3>
 
-            <div class="book-row">
-                <div class="book-card" data-title="still alice">
-                    <img src="imgs/still_alice_cover.jpg">
-                    <p>Still Alice</p>
-                </div>
-
-                <div class="book-card" data-title="tattooist of auschwitz">
-                    <img src="imgs/tatooistofauschwitz.jpg">
-                    <p>The Tattooist of Auschwitz</p>
-                </div>
-
-
-                <div class="book-card" data-title="animal farm">
-                    <img src="imgs/AnimalFarm.jpg">
-                    <p>Animal Farm</p>
-                </div>
-
-                <div class="book-card" data-title="1984">
-                    <img src="imgs/1984book.jpg">
-                    <p>1984</p>
-                </div>
-
-                <div class="book-card" data-title="daisy jones & the six">
-                    <img src="imgs/daisyjones.jpg">
-                    <p>Daisy Jones and The Six</p>
-                </div>
-
-                <div class="book-card" data-title="the curious incident of the dog in the night-time">
-                    <img src="imgs/doginthenight.jpg">
-                    <p>The Curious Incident of</p>
-                    <p> The Dog in The Night-Time</p>
-                </div>
-
-                <div class="book-card" data-title="the short second life of bree tanner">
-                    <img src="imgs/breetanner.jpg">
-                    <p>The Short Second Life of Bree Tanner</p>
-                </div>
-
-                <div class="book-card" data-title="the prodigal god">
-                    <img src="imgs/prodigalgod.jpg">
-                    <p>The Prodigal God</p>
-                </div>
-
-
-            </div>
-        </div>
-    </div>
-
-
-    <div class="book-section">
-        <h3>Likes</h3>
-
         <div class="book-row">
-            <div class="book-card">
+            <div class="book-card" data-title="still alice">
                 <img src="imgs/still_alice_cover.jpg">
                 <p>Still Alice</p>
             </div>
 
-            <div class="book-card">
+            <div class="book-card" data-title="tattooist of auschwitz">
                 <img src="imgs/tatooistofauschwitz.jpg">
                 <p>The Tattooist of Auschwitz</p>
             </div>
 
 
-            <div class="book-card">
+            <div class="book-card" data-title="animal farm">
                 <img src="imgs/AnimalFarm.jpg">
                 <p>Animal Farm</p>
             </div>
 
-            <div class="book-card">
+            <div class="book-card" data-title="1984">
                 <img src="imgs/1984book.jpg">
                 <p>1984</p>
             </div>
 
-            <div class="book-card">
+            <div class="book-card" data-title="daisy jones & the six">
                 <img src="imgs/daisyjones.jpg">
                 <p>Daisy Jones and The Six</p>
             </div>
 
-            <div class="book-card">
+            <div class="book-card" data-title="the curious incident of the dog in the night-time">
                 <img src="imgs/doginthenight.jpg">
                 <p>The Curious Incident of</p>
                 <p> The Dog in The Night-Time</p>
             </div>
 
-            <div class="book-card">
+            <div class="book-card" data-title="the short second life of bree tanner">
                 <img src="imgs/breetanner.jpg">
                 <p>The Short Second Life of Bree Tanner</p>
             </div>
 
-            <div class="book-card">
+            <div class="book-card" data-title="the prodigal god">
                 <img src="imgs/prodigalgod.jpg">
                 <p>The Prodigal God</p>
             </div>
@@ -138,6 +87,16 @@
 
         </div>
     </div>
+    </div>
+
+
+    <div class="book-section">
+        <h3>Likes <button id="clearLikesBtn" class="action-btn">Clear Likes</button>
+        </h3>
+
+        <div id="likesList"></div>
+    </div>
+
 
     <script src="script.js"></script>
 </body>

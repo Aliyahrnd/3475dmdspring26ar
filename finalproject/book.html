@@ -10,35 +10,11 @@
     <h1 id="title"></h1>
     <p id="desc"></p>
 
-    <script>
-         const params = new URLSearchParams(window.location.search);
-  const title = params.get("title");
 
-  fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(title)}`)
-    .then(res => res.json())
-    .then(data => {
-      const book = data.docs[0];
-      console.log(book);
+<button id="likeBtn">Like ❤️</button>
+<button id="speakBtn">🔊 Read Aloud</button>
 
-      const workKey = book.key; // 👈 THIS is your "/works/OL9475257W"
-
-      return fetch(`https://openlibrary.org${workKey}.json`);
-    })
-    .then(res => res.json())
-    .then(work => {
-
-      console.log(work);
-
-      document.getElementById("title").textContent = work.title;
-
-      document.getElementById("desc").textContent =
-        work.description?.value ||
-        work.description ||
-        "No description available.";
-
-    })
-    .catch(err => console.error(err));
-    </script>
+<script src="book.js"> </script>
 
 <style>
   body {
@@ -55,7 +31,35 @@
       font-size: 18px;
       max-width: 600px;
   }
+
+  #likeBtn {
+  padding: 10px 16px;
+  border: none;
+  background: #d6a4a4;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#likeBtn:hover {
+  opacity: 0.8;
+}
+
+#speakBtn {
+  padding: 10px 16px;
+  border: none;
+  background: #d6a4a4;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#speakBtn:hover {
+  opacity: 0.8;
+}
+
   </style>
+
 
 </body>
 </html>
