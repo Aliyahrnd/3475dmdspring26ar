@@ -11,20 +11,33 @@
     <p id="desc"></p>
 
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const title = params.get("title");
+         const params = new URLSearchParams(window.location.search);
+  const title = params.get("title");
 
-        fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(title)}`)
-          .then(res => res.json())
-          .then(data => {
-            const book = data.docs[0];
+  fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(title)}`)
+    .then(res => res.json())
+    .then(data => {
+      const book = data.docs[0];
+      console.log(book);
 
-            console.log(book);
+      const workKey = book.key; // 👈 THIS is your "/works/OL9475257W"
 
-            document.getElementById("title").textContent = book.title;
-            document.getElementById("desc").textContent =
-              book.first_sentence?.[0] || "No description available.";
-          });
+      return fetch(`https://openlibrary.org${workKey}.json`);
+    })
+    .then(res => res.json())
+    .then(work => {
+
+      console.log(work);
+
+      document.getElementById("title").textContent = work.title;
+
+      document.getElementById("desc").textContent =
+        work.description?.value ||
+        work.description ||
+        "No description available.";
+
+    })
+    .catch(err => console.error(err));
     </script>
 
 <style>
